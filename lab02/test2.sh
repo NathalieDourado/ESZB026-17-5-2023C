@@ -11,7 +11,7 @@ sleep 1
 
 x=1
 
-while [$x -le 5]
+while [ $x -le 5 ]
 do
 
  cd gpio20
