@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 cd /sys/class/gpio  #redireciona para o sysfs que representa o GPIO
 
