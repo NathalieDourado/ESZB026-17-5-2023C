@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd /sys/class/gpio  #redireciona para o sysfs que representa o GPIO
 
 echo 16 >export  #habilita a saida da porta do LED amarelo
