@@ -6,34 +6,11 @@
 #define LED_VERMELHO 20
 #define LED_VERDE 21
 
-void exportGPIO(int gpio) {
-    FILE *exportFile = fopen("/sys/class/gpio/export", "w");
-    fprintf(exportFile, "%d", gpio);
-    fclose(exportFile);
-}
-
-void unexportGPIO(int gpio) {
-    FILE *unexportFile = fopen("/sys/class/gpio/unexport", "w");
-    fprintf(unexportFile, "%d", gpio);
-    fclose(unexportFile);
-}
-
-void setGPIOValue(int gpio, int value) {
-    char path[64];
-    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/value", gpio);
-
-    FILE *valueFile = fopen(path, "w");
-    fprintf(valueFile, "%d", value);
-    fclose(valueFile);
-}
-
-void setGPIODirection(int gpio, const char *direction) {
-    char path[64];
-    snprintf(path, sizeof(path), "/sys/class/gpio/gpio%d/direction", gpio);
-
-    FILE *directionFile = fopen(path, "w");
-    fprintf(directionFile, "%s", direction);
-    fclose(directionFile);
+void writeGPIO(char filename[], char value []){
+    FILE* fp;
+    fp = fopen(filename, "w+");
+    fprintf(fp,"%s", value);
+    fclose(fp)
 }
 
 int main(int argc, char *argv[]) {
