@@ -10,7 +10,7 @@ void writeGPIO(char filename[], char value []){
     FILE* fp;
     fp = fopen(filename, "w+");
     fprintf(fp,"%s", value);
-    fclose(fp)
+    fclose(fp);
 }
 
 int main(int argc, char *argv[]) {
