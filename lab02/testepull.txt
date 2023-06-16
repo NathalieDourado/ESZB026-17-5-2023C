@@ -1,4 +1,4 @@
-
+detgbdgdb ALTERAMOS
 
 #define GPIOSYS "sys/class/gpio/"
 #define GPIOYEL "16"
