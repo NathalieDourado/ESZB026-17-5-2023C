@@ -1,0 +1,9 @@
+
+
+#define GPIOSYS "sys/class/gpio/"
+#define GPIOYEL "16"
+#define GPIOYEL_PATH "sys/class/gpio/gpio16/"
+#define GPIORED "20"
+#define GPIORED_PATH "sys/class/gpio/gpio20/"
+#define GPIOGRE "21"
+#define GPIOGRE_PATH "sys/class/gpio/gpio21/"
