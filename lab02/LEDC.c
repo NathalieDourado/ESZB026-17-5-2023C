@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define LED_AMARELO 16
-#define LED_VERMELHO 20
-#define LED_VERDE 21
+#define LED_AMARELO "16"
+#define LED_VERMELHO "20"
+#define LED_VERDE "21"
 
 void writeGPIO(char filename[], char value []){
     FILE* fp;
