@@ -1,4 +1,4 @@
-#!/bin/bash                  #identifica para rodar o sistema em Bash shell
+#!/bin/bash
 
 cd /sys/class/gpio           #direciona a pasta em que comanda o GPIO
 
