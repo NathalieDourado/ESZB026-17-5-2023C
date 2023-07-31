@@ -15,6 +15,9 @@ def inicia_coleta():
 def para_coleta():
     conexaoSerial.write(b'p')
 
+def send_delay():
+    conexaoSerial.write(b'd')
+
 def saindo():
     conexaoSerial.write(b'p')
     print('Saindo')
@@ -25,18 +28,20 @@ def update():
         dado1 = conexaoSerial.read()
         dado2 = conexaoSerial.read()
         novodado = float( (ord(dado1) + ord(dado2)*256.0)*5.0/1023.0 )
-        
+
         data1[x_atual] = novodado
         data1[(x_atual+1)%npontos] = np.nan
         x_atual = x_atual+1
         if x_atual >= npontos:
             x_atual = 0
-        
+
         curve1.setData(data1, connect="finite")
         actualTime = time.time()*1000
         taxa = str(round(actualTime-previousTime))
         previousTime = actualTime
         texto.setText("taxa: "+taxa.zfill(3)+"ms" )
+        texto2 = str(round(100))
+        textodelay.setText("delay: "+texto2.zfill(3)+"ms")
 
 win = pg.GraphicsWindow()
 win.setWindowTitle('Coletando dados do Arduino via Porta Serial')
@@ -54,6 +59,11 @@ texto = pg.TextItem(text="", color=(255,255,0), anchor=(0,1))
 p1.addItem(texto)
 texto.setPos(0,0) # adiciona o texto na posicao (0,0) do grafico
 
+texto2 = 100
+textodelay = pg.TextItem(text="", color=(255,255,0), anchor=(0,1))
+p1.addItem(textodelay)
+textodelay.setPos(700,4.5)
+
 proxy1 = QtGui.QGraphicsProxyWidget()
 botao1 = QtGui.QPushButton('Inicia')
 proxy1.setWidget(botao1)
@@ -64,13 +74,19 @@ botao2 = QtGui.QPushButton('Para')
 proxy2.setWidget(botao2)
 botao2.clicked.connect(para_coleta)
 
-p2 = win.addLayout(row=1, col=0)
+proxy3 = QtGui.QGraphicsProxyWidget()
+botao3 = QtGui.QPushButton('mostrar delay')
+proxy3.setWidget(botao3)
+botao3.clicked.connect(send_delay)
+
+p2 = win.addLayout(row=2, col=0)
 p2.addItem(proxy1,row=0,col=0)
 p2.addItem(proxy2,row=1,col=0)
+p2.addItem(proxy3,row=2,col=0)
 
 conexaoSerial = serial.Serial('/dev/ttyACM0',115200)
-conexaoSerial.write(b'i')
-        
+#conexaoSerial.write(b'i')
+
 # inicia timer rodando o mais rápido possível
 timer = QtCore.QTimer()
 timer.timeout.connect(update)
