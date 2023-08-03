@@ -1,6 +1,7 @@
 const int analogInPin = A0;            // o potenciômetro esta ligado ao pino A0
 int iniciaColeta = 0;
-char charRecebido;                     // cria uma variavel para armazenar o caractere recebido
+char charRecebido; // cria uma variavel para armazenar o caractere recebido
+int ddelay = 100;
 
 void setup(){
    // Configura a serial: baud rate de 115200, 8-bit, sem paridade, 1 stop bit
@@ -19,6 +20,20 @@ void loop(){
              iniciaColeta = 0;
              break;
              
+          case 'd':
+             Serial.write(ddelay);
+             break;
+          
+          case 'a':
+             ddelay = ddelay + 1;
+             Serial.write(ddelay);
+             break;
+             
+          case 'b':
+             ddelay = ddelay - 1;
+             Serial.write(ddelay);
+             break;
+             
           default:                     // outro comando, ignora...
              break;
       }
@@ -28,5 +43,5 @@ void loop(){
        Serial.write(valor & 0xFF);          // envia byte menos significativo
        Serial.write(valor >> 8);            // envia byte mais significativo
    }
-   delay(100);                          // aguarda 100ms
+   delay(ddelay);                          // aguarda 100ms
 }

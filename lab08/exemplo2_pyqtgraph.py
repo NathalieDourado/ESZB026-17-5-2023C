@@ -17,6 +17,24 @@ def para_coleta():
 
 def send_delay():
     conexaoSerial.write(b'd')
+    time.sleep(0.1)
+    dado3 = conexaoSerial.read()
+    texto2 = str(ord(dado3))
+    textodelay.setText("delay: "+texto2.zfill(3)+"ms")
+
+def aumentar_delay():
+    conexaoSerial.write(b'a')
+    time.sleep(0.1)
+    dado3 = conexaoSerial.read()
+    texto2 = str(ord(dado3))
+    textodelay.setText("delay: "+texto2.zfill(3)+"ms")
+
+def diminuir_delay():
+    conexaoSerial.write(b'b')
+    time.sleep(0.1)
+    dado3 = conexaoSerial.read()
+    texto2 = str(ord(dado3))
+    textodelay.setText("delay: "+texto2.zfill(3)+"ms")
 
 def saindo():
     conexaoSerial.write(b'p')
@@ -40,8 +58,8 @@ def update():
         taxa = str(round(actualTime-previousTime))
         previousTime = actualTime
         texto.setText("taxa: "+taxa.zfill(3)+"ms" )
-        texto2 = str(round(100))
-        textodelay.setText("delay: "+texto2.zfill(3)+"ms")
+
+
 
 win = pg.GraphicsWindow()
 win.setWindowTitle('Coletando dados do Arduino via Porta Serial')
@@ -79,10 +97,22 @@ botao3 = QtGui.QPushButton('mostrar delay')
 proxy3.setWidget(botao3)
 botao3.clicked.connect(send_delay)
 
-p2 = win.addLayout(row=2, col=0)
+proxy4 = QtGui.QGraphicsProxyWidget()
+botao4 = QtGui.QPushButton('aumentar delay')
+proxy4.setWidget(botao4)
+botao4.clicked.connect(aumentar_delay)
+
+proxy5 = QtGui.QGraphicsProxyWidget()
+botao5 = QtGui.QPushButton('diminuir delay')
+proxy5.setWidget(botao5)
+botao5.clicked.connect(diminuir_delay)
+
+p2 = win.addLayout(row=3, col=0)
 p2.addItem(proxy1,row=0,col=0)
 p2.addItem(proxy2,row=1,col=0)
 p2.addItem(proxy3,row=2,col=0)
+p2.addItem(proxy4,row=3,col=0)
+p2.addItem(proxy5,row=4,col=0)
 
 conexaoSerial = serial.Serial('/dev/ttyACM0',115200)
 #conexaoSerial.write(b'i')
