@@ -3,9 +3,14 @@
 <body style="background-color:#9cbb80;">
 
 <style>
-table, th, td {
+table, th{
   margin-left: auto;
   margin-right: auto;
+  width: 95%;
+}
+
+td:first-child {
+  padding-right: 50px;
 }
 
 .ascii-art {
@@ -24,14 +29,16 @@ table, th, td {
 }
 </style>
 
-<p align="center">
+
+<div id="outer">
+<div id="inner">
 <table>
   <tbody>
     <tr>
       <td width="35%;"><h1 align="center">
 Sistema de identificação de posição do bebê usando chaves de fim de curso e sensor magnético
 </h1></td>
-      <td rowspan="2" colspan="2">WE WILL HAVE THE GRAPH HERE</td>
+      <td rowspan="2" colspan="2" padding-left="500px;">WE WILL HAVE THE GRAPH HERE</td>
     </tr>
     <tr>
 
@@ -39,7 +46,8 @@ Sistema de identificação de posição do bebê usando chaves de fim de curso e
     </tr>
   </tbody>
 </table>
-</p>
+</div>
+</div>
 
 <div id="outer">
 <div id="inner" class="ascii-art">
