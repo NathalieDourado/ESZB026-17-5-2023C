@@ -38,18 +38,15 @@ td:first-child {
       <td width="35%;"><h1 align="center">
 Sistema de identificação de posição do bebê usando chaves de fim de curso e sensor magnético
 </h1></td>
-      <td rowspan="2" colspan="2" padding-left="500px;">WE WILL HAVE THE GRAPH HERE</td>
+      <td rowspan="3" colspan="2">WE WILL HAVE THE GRAPH HERE</td>
     </tr>
     <tr>
 
       <td>O Projeto visa desenvolver um berço especial para recém-nascidos utilizando os conceitos e habilidades adquiridos na disciplina de Sistemas Embarcados para Engenharia Biomédica, a fim de monitorar e mostrar a posição do bebê em tempo real.</td>
     </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-<div id="outer">
+    <tr>
+    <td>
+    <div id="outer">
 <div id="inner" class="ascii-art">
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⣶⡿⠿⠿⠟⠛⠛⠛⠛⠛⠛⠿⠿⢿⣶⣶⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -81,6 +78,16 @@ Sistema de identificação de posição do bebê usando chaves de fim de curso e
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 </div>
 </div>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
 
 
 </html>
+
+
